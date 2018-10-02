@@ -9,4 +9,4 @@ rv64uXf16_sc_tests = \
 rv64uXf16_p_tests = $(addprefix rv64uXf16-p-, $(rv64uXf16_sc_tests))
 rv64uXf16_v_tests = $(addprefix rv64uXf16-v-, $(rv64uXf16_sc_tests))
 
-spike_tests += $(rv64uXf16_p_tests) $(rv64uXf16_v_tests)
+# spike_tests += $(rv64uXf16_p_tests) $(rv64uXf16_v_tests)

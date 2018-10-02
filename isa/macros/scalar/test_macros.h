@@ -397,9 +397,9 @@ test_ ## testnum: \
   .pushsection .data; \
   .align 1; \
   test_ ## testnum ## _data: \
-  .half val1; \
-  .half val2; \
-  .half val3; \
+  .float16 val1; \
+  .float16 val2; \
+  .float16 val3; \
   .result; \
   .popsection
 
@@ -481,7 +481,7 @@ test_ ## testnum: \
                     fcvt.h.d f3, f0; fcvt.d.h f3, f3; fmv.x.d a0, f3)
 
 #define TEST_FCVT_S_H( testnum, result, val1 ) \
-  TEST_FP_OP_H_INTERNAL( testnum, 0, half result, val1, 0.0, 0.0, \
+  TEST_FP_OP_H_INTERNAL( testnum, 0, float16 result, val1, 0.0, 0.0, \
                     fcvt.s.h f3, f0; fcvt.h.s f3, f3; fmv.x.h a0, f3)
 
 #define TEST_FCVT_S_D32( testnum, result, val1 ) \
@@ -493,7 +493,7 @@ test_ ## testnum: \
                     fcvt.s.d f3, f0; fcvt.d.s f3, f3; fmv.x.d a0, f3)
 
 #define TEST_FCVT_D_H( testnum, result, val1 ) \
-  TEST_FP_OP_H_INTERNAL( testnum, 0, half result, val1, 0.0, 0.0, \
+  TEST_FP_OP_H_INTERNAL( testnum, 0, float16 result, val1, 0.0, 0.0, \
                     fcvt.d.h f3, f0; fcvt.h.d f3, f3; fmv.x.h a0, f3)
 
 #define TEST_FCVT_D_S( testnum, result, val1 ) \
@@ -501,7 +501,7 @@ test_ ## testnum: \
                     fcvt.d.s f3, f0; fcvt.s.d f3, f3; fmv.x.s a0, f3)
 
 #define TEST_FP_OP1_H( testnum, inst, flags, result, val1 ) \
-  TEST_FP_OP_S_INTERNAL( testnum, flags, half result, val1, 0.0, 0.0, \
+  TEST_FP_OP_S_INTERNAL( testnum, flags, float16 result, val1, 0.0, 0.0, \
                     inst f3, f0; fmv.x.h a0, f3)
 
 #define TEST_FP_OP1_S( testnum, inst, flags, result, val1 ) \
@@ -535,7 +535,7 @@ test_ ## testnum: \
                     inst f3, f0; fmv.x.d a0, f3)
 
 #define TEST_FP_OP2_H( testnum, inst, flags, result, val1, val2 ) \
-  TEST_FP_OP_H_INTERNAL( testnum, flags, half result, val1, val2, 0.0, \
+  TEST_FP_OP_H_INTERNAL( testnum, flags, float16 result, val1, val2, 0.0, \
                     inst f3, f0, f1; fmv.x.h a0, f3)
 
 #define TEST_FP_OP2_S( testnum, inst, flags, result, val1, val2 ) \
@@ -632,7 +632,7 @@ test_ ## testnum: \
   .pushsection .data; \
   .align 1; \
   test_ ## testnum ## _data: \
-  .half result; \
+  .float16 result; \
   .popsection
 
 #define TEST_INT_FP_OP_S( testnum, inst, result, val1 ) \
